@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/vhorvat/Documents/ros2_ws/src/test_node
+CMAKE_SOURCE_DIR = /home/vhorvat/Documents/master_thesis/ros2_ws/src/test_node
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/vhorvat/Documents/ros2_ws/build/test_node
+CMAKE_BINARY_DIR = /home/vhorvat/Documents/master_thesis/ros2_ws/build/test_node
 
 # Utility rule file for uninstall.
 
@@ -78,6 +78,6 @@ CMakeFiles/uninstall.dir/clean:
 .PHONY : CMakeFiles/uninstall.dir/clean
 
 CMakeFiles/uninstall.dir/depend:
-	cd /home/vhorvat/Documents/ros2_ws/build/test_node && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vhorvat/Documents/ros2_ws/src/test_node /home/vhorvat/Documents/ros2_ws/src/test_node /home/vhorvat/Documents/ros2_ws/build/test_node /home/vhorvat/Documents/ros2_ws/build/test_node /home/vhorvat/Documents/ros2_ws/build/test_node/CMakeFiles/uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/vhorvat/Documents/master_thesis/ros2_ws/build/test_node && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vhorvat/Documents/master_thesis/ros2_ws/src/test_node /home/vhorvat/Documents/master_thesis/ros2_ws/src/test_node /home/vhorvat/Documents/master_thesis/ros2_ws/build/test_node /home/vhorvat/Documents/master_thesis/ros2_ws/build/test_node /home/vhorvat/Documents/master_thesis/ros2_ws/build/test_node/CMakeFiles/uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/uninstall.dir/depend
 

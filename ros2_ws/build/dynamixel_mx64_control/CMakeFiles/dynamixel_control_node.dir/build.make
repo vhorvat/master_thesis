@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/vhorvat/Documents/ros2_ws/src/dynamixel_mx64_control
+CMAKE_SOURCE_DIR = /home/vhorvat/Documents/master_thesis/ros2_ws/src/dynamixel_mx64_control
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/vhorvat/Documents/ros2_ws/build/dynamixel_mx64_control
+CMAKE_BINARY_DIR = /home/vhorvat/Documents/master_thesis/ros2_ws/build/dynamixel_mx64_control
 
 # Include any dependencies generated for this target.
 include CMakeFiles/dynamixel_control_node.dir/depend.make
@@ -70,18 +70,18 @@ include CMakeFiles/dynamixel_control_node.dir/progress.make
 include CMakeFiles/dynamixel_control_node.dir/flags.make
 
 CMakeFiles/dynamixel_control_node.dir/src/dynamixel_control_node.cpp.o: CMakeFiles/dynamixel_control_node.dir/flags.make
-CMakeFiles/dynamixel_control_node.dir/src/dynamixel_control_node.cpp.o: /home/vhorvat/Documents/ros2_ws/src/dynamixel_mx64_control/src/dynamixel_control_node.cpp
+CMakeFiles/dynamixel_control_node.dir/src/dynamixel_control_node.cpp.o: /home/vhorvat/Documents/master_thesis/ros2_ws/src/dynamixel_mx64_control/src/dynamixel_control_node.cpp
 CMakeFiles/dynamixel_control_node.dir/src/dynamixel_control_node.cpp.o: CMakeFiles/dynamixel_control_node.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vhorvat/Documents/ros2_ws/build/dynamixel_mx64_control/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/dynamixel_control_node.dir/src/dynamixel_control_node.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dynamixel_control_node.dir/src/dynamixel_control_node.cpp.o -MF CMakeFiles/dynamixel_control_node.dir/src/dynamixel_control_node.cpp.o.d -o CMakeFiles/dynamixel_control_node.dir/src/dynamixel_control_node.cpp.o -c /home/vhorvat/Documents/ros2_ws/src/dynamixel_mx64_control/src/dynamixel_control_node.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vhorvat/Documents/master_thesis/ros2_ws/build/dynamixel_mx64_control/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/dynamixel_control_node.dir/src/dynamixel_control_node.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dynamixel_control_node.dir/src/dynamixel_control_node.cpp.o -MF CMakeFiles/dynamixel_control_node.dir/src/dynamixel_control_node.cpp.o.d -o CMakeFiles/dynamixel_control_node.dir/src/dynamixel_control_node.cpp.o -c /home/vhorvat/Documents/master_thesis/ros2_ws/src/dynamixel_mx64_control/src/dynamixel_control_node.cpp
 
 CMakeFiles/dynamixel_control_node.dir/src/dynamixel_control_node.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/dynamixel_control_node.dir/src/dynamixel_control_node.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vhorvat/Documents/ros2_ws/src/dynamixel_mx64_control/src/dynamixel_control_node.cpp > CMakeFiles/dynamixel_control_node.dir/src/dynamixel_control_node.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vhorvat/Documents/master_thesis/ros2_ws/src/dynamixel_mx64_control/src/dynamixel_control_node.cpp > CMakeFiles/dynamixel_control_node.dir/src/dynamixel_control_node.cpp.i
 
 CMakeFiles/dynamixel_control_node.dir/src/dynamixel_control_node.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/dynamixel_control_node.dir/src/dynamixel_control_node.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vhorvat/Documents/ros2_ws/src/dynamixel_mx64_control/src/dynamixel_control_node.cpp -o CMakeFiles/dynamixel_control_node.dir/src/dynamixel_control_node.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vhorvat/Documents/master_thesis/ros2_ws/src/dynamixel_mx64_control/src/dynamixel_control_node.cpp -o CMakeFiles/dynamixel_control_node.dir/src/dynamixel_control_node.cpp.s
 
 # Object files for target dynamixel_control_node
 dynamixel_control_node_OBJECTS = \
@@ -160,7 +160,7 @@ dynamixel_control_node: /opt/ros/jazzy/lib/libtracetools.so
 dynamixel_control_node: /opt/ros/jazzy/lib/librcl_logging_interface.so
 dynamixel_control_node: /opt/ros/jazzy/lib/librcutils.so
 dynamixel_control_node: CMakeFiles/dynamixel_control_node.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/vhorvat/Documents/ros2_ws/build/dynamixel_mx64_control/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable dynamixel_control_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/vhorvat/Documents/master_thesis/ros2_ws/build/dynamixel_mx64_control/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable dynamixel_control_node"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/dynamixel_control_node.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -172,6 +172,6 @@ CMakeFiles/dynamixel_control_node.dir/clean:
 .PHONY : CMakeFiles/dynamixel_control_node.dir/clean
 
 CMakeFiles/dynamixel_control_node.dir/depend:
-	cd /home/vhorvat/Documents/ros2_ws/build/dynamixel_mx64_control && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vhorvat/Documents/ros2_ws/src/dynamixel_mx64_control /home/vhorvat/Documents/ros2_ws/src/dynamixel_mx64_control /home/vhorvat/Documents/ros2_ws/build/dynamixel_mx64_control /home/vhorvat/Documents/ros2_ws/build/dynamixel_mx64_control /home/vhorvat/Documents/ros2_ws/build/dynamixel_mx64_control/CMakeFiles/dynamixel_control_node.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/vhorvat/Documents/master_thesis/ros2_ws/build/dynamixel_mx64_control && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vhorvat/Documents/master_thesis/ros2_ws/src/dynamixel_mx64_control /home/vhorvat/Documents/master_thesis/ros2_ws/src/dynamixel_mx64_control /home/vhorvat/Documents/master_thesis/ros2_ws/build/dynamixel_mx64_control /home/vhorvat/Documents/master_thesis/ros2_ws/build/dynamixel_mx64_control /home/vhorvat/Documents/master_thesis/ros2_ws/build/dynamixel_mx64_control/CMakeFiles/dynamixel_control_node.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/dynamixel_control_node.dir/depend
 

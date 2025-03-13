@@ -1,0 +1,54 @@
+[0.020s] Invoking command in '/home/vhorvat/Documents/master_thesis/ros2_ws/build/dynamixel_mx64_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/vhorvat/Documents/master_thesis/ros2_ws/src/dynamixel_mx64_control -DCMAKE_INSTALL_PREFIX=/home/vhorvat/Documents/master_thesis/ros2_ws/install/dynamixel_mx64_control
+[0.113s] -- The C compiler identification is GNU 13.3.0
+[0.207s] -- The CXX compiler identification is GNU 13.3.0
+[0.236s] -- Detecting C compiler ABI info
+[0.388s] -- Detecting C compiler ABI info - done
+[0.404s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.405s] -- Detecting C compile features
+[0.406s] -- Detecting C compile features - done
+[0.422s] -- Detecting CXX compiler ABI info
+[0.589s] -- Detecting CXX compiler ABI info - done
+[0.604s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.605s] -- Detecting CXX compile features
+[0.606s] -- Detecting CXX compile features - done
+[0.610s] -- Found ament_cmake: 2.5.3 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.844s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[1.008s] -- Found rclcpp: 28.1.6 (/opt/ros/jazzy/share/rclcpp/cmake)
+[1.076s] -- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[1.091s] -- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[1.115s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.143s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.265s] -- Found rmw_implementation_cmake: 7.3.1 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[1.269s] -- Found rmw_fastrtps_cpp: 8.4.1 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[1.413s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[1.446s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[1.485s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.749s] -- Configuring done (1.7s)
+[1.765s] -- Generating done (0.0s)
+[1.770s] -- Build files have been written to: /home/vhorvat/Documents/master_thesis/ros2_ws/build/dynamixel_mx64_control
+[1.792s] Invoked command in '/home/vhorvat/Documents/master_thesis/ros2_ws/build/dynamixel_mx64_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/vhorvat/Documents/master_thesis/ros2_ws/src/dynamixel_mx64_control -DCMAKE_INSTALL_PREFIX=/home/vhorvat/Documents/master_thesis/ros2_ws/install/dynamixel_mx64_control
+[1.794s] Invoking command in '/home/vhorvat/Documents/master_thesis/ros2_ws/build/dynamixel_mx64_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/vhorvat/Documents/master_thesis/ros2_ws/build/dynamixel_mx64_control -- -j16 -l16
+[1.880s] [ 50%] [32mBuilding CXX object CMakeFiles/dynamixel_control_node.dir/src/dynamixel_control_node.cpp.o[0m
+[6.137s] [100%] [32m[1mLinking CXX executable dynamixel_control_node[0m
+[6.318s] [100%] Built target dynamixel_control_node
+[6.338s] Invoked command in '/home/vhorvat/Documents/master_thesis/ros2_ws/build/dynamixel_mx64_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/vhorvat/Documents/master_thesis/ros2_ws/build/dynamixel_mx64_control -- -j16 -l16
+[6.340s] Invoking command in '/home/vhorvat/Documents/master_thesis/ros2_ws/build/dynamixel_mx64_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/vhorvat/Documents/master_thesis/ros2_ws/build/dynamixel_mx64_control
+[6.352s] -- Install configuration: ""
+[6.353s] -- Installing: /home/vhorvat/Documents/master_thesis/ros2_ws/install/dynamixel_mx64_control/lib/dynamixel_mx64_control/dynamixel_control_node
+[6.354s] -- Set non-toolchain portion of runtime path of "/home/vhorvat/Documents/master_thesis/ros2_ws/install/dynamixel_mx64_control/lib/dynamixel_mx64_control/dynamixel_control_node" to ""
+[6.354s] -- Installing: /home/vhorvat/Documents/master_thesis/ros2_ws/install/dynamixel_mx64_control/share/ament_index/resource_index/package_run_dependencies/dynamixel_mx64_control
+[6.354s] -- Installing: /home/vhorvat/Documents/master_thesis/ros2_ws/install/dynamixel_mx64_control/share/ament_index/resource_index/parent_prefix_path/dynamixel_mx64_control
+[6.355s] -- Installing: /home/vhorvat/Documents/master_thesis/ros2_ws/install/dynamixel_mx64_control/share/dynamixel_mx64_control/environment/ament_prefix_path.sh
+[6.355s] -- Installing: /home/vhorvat/Documents/master_thesis/ros2_ws/install/dynamixel_mx64_control/share/dynamixel_mx64_control/environment/ament_prefix_path.dsv
+[6.355s] -- Installing: /home/vhorvat/Documents/master_thesis/ros2_ws/install/dynamixel_mx64_control/share/dynamixel_mx64_control/environment/path.sh
+[6.356s] -- Installing: /home/vhorvat/Documents/master_thesis/ros2_ws/install/dynamixel_mx64_control/share/dynamixel_mx64_control/environment/path.dsv
+[6.356s] -- Installing: /home/vhorvat/Documents/master_thesis/ros2_ws/install/dynamixel_mx64_control/share/dynamixel_mx64_control/local_setup.bash
+[6.356s] -- Installing: /home/vhorvat/Documents/master_thesis/ros2_ws/install/dynamixel_mx64_control/share/dynamixel_mx64_control/local_setup.sh
+[6.356s] -- Installing: /home/vhorvat/Documents/master_thesis/ros2_ws/install/dynamixel_mx64_control/share/dynamixel_mx64_control/local_setup.zsh
+[6.357s] -- Installing: /home/vhorvat/Documents/master_thesis/ros2_ws/install/dynamixel_mx64_control/share/dynamixel_mx64_control/local_setup.dsv
+[6.357s] -- Installing: /home/vhorvat/Documents/master_thesis/ros2_ws/install/dynamixel_mx64_control/share/dynamixel_mx64_control/package.dsv
+[6.357s] -- Installing: /home/vhorvat/Documents/master_thesis/ros2_ws/install/dynamixel_mx64_control/share/ament_index/resource_index/packages/dynamixel_mx64_control
+[6.358s] -- Installing: /home/vhorvat/Documents/master_thesis/ros2_ws/install/dynamixel_mx64_control/share/dynamixel_mx64_control/cmake/dynamixel_mx64_controlConfig.cmake
+[6.358s] -- Installing: /home/vhorvat/Documents/master_thesis/ros2_ws/install/dynamixel_mx64_control/share/dynamixel_mx64_control/cmake/dynamixel_mx64_controlConfig-version.cmake
+[6.358s] -- Installing: /home/vhorvat/Documents/master_thesis/ros2_ws/install/dynamixel_mx64_control/share/dynamixel_mx64_control/package.xml
+[6.362s] Invoked command in '/home/vhorvat/Documents/master_thesis/ros2_ws/build/dynamixel_mx64_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/vhorvat/Documents/master_thesis/ros2_ws/build/dynamixel_mx64_control
