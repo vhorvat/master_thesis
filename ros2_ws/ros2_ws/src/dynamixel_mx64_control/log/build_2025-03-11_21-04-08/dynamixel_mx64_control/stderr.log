@@ -1,0 +1,7 @@
+[01m[K/home/vhorvat/Documents/ros2_ws/src/dynamixel_mx64_control/src/dynamixel_control_node.cpp:1:10:[m[K [01;31m[Kfatal error: [m[Krclcpp/rclcpp.hpp: No such file or directory
+    1 | #include [01;31m[K<rclcpp/rclcpp.hpp>[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/dynamixel_control_node.dir/build.make:76: CMakeFiles/dynamixel_control_node.dir/src/dynamixel_control_node.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/dynamixel_control_node.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

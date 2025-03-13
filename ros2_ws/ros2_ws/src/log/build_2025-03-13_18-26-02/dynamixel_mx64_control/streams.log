@@ -1,0 +1,25 @@
+[0.027s] Invoking command in '/home/vhorvat/Documents/ros2_ws/src/build/dynamixel_mx64_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/vhorvat/Documents/ros2_ws/src/build/dynamixel_mx64_control -- -j16 -l16
+[0.149s] [ 50%] [32mBuilding CXX object CMakeFiles/dynamixel_control_node.dir/src/dynamixel_control_node.cpp.o[0m
+[4.690s] [100%] [32m[1mLinking CXX executable dynamixel_control_node[0m
+[4.881s] [100%] Built target dynamixel_control_node
+[4.901s] Invoked command in '/home/vhorvat/Documents/ros2_ws/src/build/dynamixel_mx64_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/vhorvat/Documents/ros2_ws/src/build/dynamixel_mx64_control -- -j16 -l16
+[4.904s] Invoking command in '/home/vhorvat/Documents/ros2_ws/src/build/dynamixel_mx64_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/vhorvat/Documents/ros2_ws/src/build/dynamixel_mx64_control
+[4.916s] -- Install configuration: ""
+[4.917s] -- Installing: /home/vhorvat/Documents/ros2_ws/src/install/dynamixel_mx64_control/lib/dynamixel_mx64_control/dynamixel_control_node
+[4.918s] -- Set non-toolchain portion of runtime path of "/home/vhorvat/Documents/ros2_ws/src/install/dynamixel_mx64_control/lib/dynamixel_mx64_control/dynamixel_control_node" to ""
+[4.918s] -- Up-to-date: /home/vhorvat/Documents/ros2_ws/src/install/dynamixel_mx64_control/share/ament_index/resource_index/package_run_dependencies/dynamixel_mx64_control
+[4.919s] -- Up-to-date: /home/vhorvat/Documents/ros2_ws/src/install/dynamixel_mx64_control/share/ament_index/resource_index/parent_prefix_path/dynamixel_mx64_control
+[4.919s] -- Up-to-date: /home/vhorvat/Documents/ros2_ws/src/install/dynamixel_mx64_control/share/dynamixel_mx64_control/environment/ament_prefix_path.sh
+[4.919s] -- Up-to-date: /home/vhorvat/Documents/ros2_ws/src/install/dynamixel_mx64_control/share/dynamixel_mx64_control/environment/ament_prefix_path.dsv
+[4.919s] -- Up-to-date: /home/vhorvat/Documents/ros2_ws/src/install/dynamixel_mx64_control/share/dynamixel_mx64_control/environment/path.sh
+[4.919s] -- Up-to-date: /home/vhorvat/Documents/ros2_ws/src/install/dynamixel_mx64_control/share/dynamixel_mx64_control/environment/path.dsv
+[4.919s] -- Up-to-date: /home/vhorvat/Documents/ros2_ws/src/install/dynamixel_mx64_control/share/dynamixel_mx64_control/local_setup.bash
+[4.920s] -- Up-to-date: /home/vhorvat/Documents/ros2_ws/src/install/dynamixel_mx64_control/share/dynamixel_mx64_control/local_setup.sh
+[4.920s] -- Up-to-date: /home/vhorvat/Documents/ros2_ws/src/install/dynamixel_mx64_control/share/dynamixel_mx64_control/local_setup.zsh
+[4.920s] -- Up-to-date: /home/vhorvat/Documents/ros2_ws/src/install/dynamixel_mx64_control/share/dynamixel_mx64_control/local_setup.dsv
+[4.920s] -- Installing: /home/vhorvat/Documents/ros2_ws/src/install/dynamixel_mx64_control/share/dynamixel_mx64_control/package.dsv
+[4.920s] -- Up-to-date: /home/vhorvat/Documents/ros2_ws/src/install/dynamixel_mx64_control/share/ament_index/resource_index/packages/dynamixel_mx64_control
+[4.920s] -- Up-to-date: /home/vhorvat/Documents/ros2_ws/src/install/dynamixel_mx64_control/share/dynamixel_mx64_control/cmake/dynamixel_mx64_controlConfig.cmake
+[4.920s] -- Up-to-date: /home/vhorvat/Documents/ros2_ws/src/install/dynamixel_mx64_control/share/dynamixel_mx64_control/cmake/dynamixel_mx64_controlConfig-version.cmake
+[4.921s] -- Up-to-date: /home/vhorvat/Documents/ros2_ws/src/install/dynamixel_mx64_control/share/dynamixel_mx64_control/package.xml
+[4.924s] Invoked command in '/home/vhorvat/Documents/ros2_ws/src/build/dynamixel_mx64_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/vhorvat/Documents/ros2_ws/src/build/dynamixel_mx64_control

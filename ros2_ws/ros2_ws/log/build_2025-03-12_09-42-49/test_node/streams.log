@@ -1,0 +1,54 @@
+[0.018s] Invoking command in '/home/vhorvat/Documents/ros2_ws/build/test_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/vhorvat/Documents/ros2_ws/src/test_node -DCMAKE_INSTALL_PREFIX=/home/vhorvat/Documents/ros2_ws/install/test_node
+[0.113s] -- The C compiler identification is GNU 13.3.0
+[0.206s] -- The CXX compiler identification is GNU 13.3.0
+[0.235s] -- Detecting C compiler ABI info
+[0.384s] -- Detecting C compiler ABI info - done
+[0.399s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.400s] -- Detecting C compile features
+[0.400s] -- Detecting C compile features - done
+[0.417s] -- Detecting CXX compiler ABI info
+[0.583s] -- Detecting CXX compiler ABI info - done
+[0.599s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.600s] -- Detecting CXX compile features
+[0.601s] -- Detecting CXX compile features - done
+[0.605s] -- Found ament_cmake: 2.5.3 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.841s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[1.006s] -- Found rclcpp: 28.1.6 (/opt/ros/jazzy/share/rclcpp/cmake)
+[1.068s] -- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[1.089s] -- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[1.114s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.141s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.263s] -- Found rmw_implementation_cmake: 7.3.1 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[1.267s] -- Found rmw_fastrtps_cpp: 8.4.1 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[1.408s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[1.442s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[1.484s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.758s] -- Configuring done (1.7s)
+[1.775s] -- Generating done (0.0s)
+[1.780s] -- Build files have been written to: /home/vhorvat/Documents/ros2_ws/build/test_node
+[1.802s] Invoked command in '/home/vhorvat/Documents/ros2_ws/build/test_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/vhorvat/Documents/ros2_ws/src/test_node -DCMAKE_INSTALL_PREFIX=/home/vhorvat/Documents/ros2_ws/install/test_node
+[1.805s] Invoking command in '/home/vhorvat/Documents/ros2_ws/build/test_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/vhorvat/Documents/ros2_ws/build/test_node -- -j16 -l16
+[1.894s] [ 50%] [32mBuilding CXX object CMakeFiles/test_node.dir/src/test_node.cpp.o[0m
+[5.911s] [100%] [32m[1mLinking CXX executable test_node[0m
+[6.081s] [100%] Built target test_node
+[6.102s] Invoked command in '/home/vhorvat/Documents/ros2_ws/build/test_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/vhorvat/Documents/ros2_ws/build/test_node -- -j16 -l16
+[6.119s] Invoking command in '/home/vhorvat/Documents/ros2_ws/build/test_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/vhorvat/Documents/ros2_ws/build/test_node
+[6.132s] -- Install configuration: ""
+[6.132s] -- Installing: /home/vhorvat/Documents/ros2_ws/install/test_node/lib/test_node/test_node
+[6.133s] -- Set non-toolchain portion of runtime path of "/home/vhorvat/Documents/ros2_ws/install/test_node/lib/test_node/test_node" to ""
+[6.133s] -- Installing: /home/vhorvat/Documents/ros2_ws/install/test_node/share/ament_index/resource_index/package_run_dependencies/test_node
+[6.134s] -- Installing: /home/vhorvat/Documents/ros2_ws/install/test_node/share/ament_index/resource_index/parent_prefix_path/test_node
+[6.134s] -- Installing: /home/vhorvat/Documents/ros2_ws/install/test_node/share/test_node/environment/ament_prefix_path.sh
+[6.135s] -- Installing: /home/vhorvat/Documents/ros2_ws/install/test_node/share/test_node/environment/ament_prefix_path.dsv
+[6.135s] -- Installing: /home/vhorvat/Documents/ros2_ws/install/test_node/share/test_node/environment/path.sh
+[6.135s] -- Installing: /home/vhorvat/Documents/ros2_ws/install/test_node/share/test_node/environment/path.dsv
+[6.136s] -- Installing: /home/vhorvat/Documents/ros2_ws/install/test_node/share/test_node/local_setup.bash
+[6.136s] -- Installing: /home/vhorvat/Documents/ros2_ws/install/test_node/share/test_node/local_setup.sh
+[6.136s] -- Installing: /home/vhorvat/Documents/ros2_ws/install/test_node/share/test_node/local_setup.zsh
+[6.137s] -- Installing: /home/vhorvat/Documents/ros2_ws/install/test_node/share/test_node/local_setup.dsv
+[6.137s] -- Installing: /home/vhorvat/Documents/ros2_ws/install/test_node/share/test_node/package.dsv
+[6.137s] -- Installing: /home/vhorvat/Documents/ros2_ws/install/test_node/share/ament_index/resource_index/packages/test_node
+[6.138s] -- Installing: /home/vhorvat/Documents/ros2_ws/install/test_node/share/test_node/cmake/test_nodeConfig.cmake
+[6.138s] -- Installing: /home/vhorvat/Documents/ros2_ws/install/test_node/share/test_node/cmake/test_nodeConfig-version.cmake
+[6.138s] -- Installing: /home/vhorvat/Documents/ros2_ws/install/test_node/share/test_node/package.xml
+[6.142s] Invoked command in '/home/vhorvat/Documents/ros2_ws/build/test_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/vhorvat/Documents/ros2_ws/build/test_node
