@@ -40,14 +40,43 @@ Sigurnost komunikacijskog kanala, ključna za integritet kontrolnih naredbi i po
 
 
 ### Optička veza s dronom
+malo o media konverterima
+puno o tension sustavu
 
-ROS2 packages:
-* fix issue on exit signal
-* fix code comments, check the current (mA) values and scalling 
+
+### Napajanje
+? shema napajanja (BEC+sustavi?)
+
+
+
+
+
+
+
+
+-----
+
+
+ROS2:
+- više manje okej za sad
 
 RPI:
-* everything
+* WiFi AP - DONE
+* Static IP na Ethernetu - DONE
+* 24.04, ROS, etc... - DONE
+
+NEWRACOM:
+*  NRC7394 - NOT DONE, needs equipment
+
+TENSION:
+* Load Cell Tension sys - DONE, needs print
+* Load Cell programing - NO, needs equipment
+* ovaj vrag za namatanje - crta se
+* vrag za namatanje na lageru ???
+
 
 GIT:
-* update git ignore list za buildane stvari
-* create docs on building the code 
+* bude
+
+diplomski na overleafu:
+https://www.overleaf.com/read/jkqhyxytmrxt#3c8907
