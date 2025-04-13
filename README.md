@@ -58,7 +58,7 @@ puno o tension sustavu
 
 
 ROS2:
-- više manje okej za sad
+- fixed, blocking funckije nisu bitne za sad (cin) jer ih neće bit u final stvari
 
 RPI:
 * WiFi AP - DONE
@@ -69,14 +69,13 @@ NEWRACOM:
 *  NRC7394 - NOT DONE, needs equipment
 
 TENSION:
-* Load Cell Tension sys - DONE, needs print
+* Load Cell Tension sys - DONE, printed
 * Load Cell programing - NO, needs equipment
-* ovaj vrag za namatanje - crta se
-* vrag za namatanje na lageru ???
+* ovaj vrag za namatanje - DONE, printed
 
 
 GIT:
-* bude
+* update
 
 diplomski na overleafu:
 https://www.overleaf.com/read/jkqhyxytmrxt#3c8907
