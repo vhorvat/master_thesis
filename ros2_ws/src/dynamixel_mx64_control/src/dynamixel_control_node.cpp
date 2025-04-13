@@ -17,7 +17,7 @@
 #define BAUDRATE                      1000000
 #define DEVICENAME                    "/dev/ttyUSB0"
 
-#define CURRENT_CONVERSION_FACTOR    3.36 //from dynamixel wizard, why?
+#define CURRENT_CONVERSION_FACTOR    4.5 //from dynamixel wizard, why? /SDK says 4.5
 
 class DynamixelController : public rclcpp::Node
 {
@@ -37,14 +37,23 @@ public:
             rclcpp::shutdown();
         }
 
-        uint8_t operating_mode = 0;
+        //for safety reasons if we crash, we need to access protected EEPROM memory of the MX64 (enable and disable torque)
+        //maybe add ret error checking?
+
+        uint8_t torque_enable = 0; 
         uint8_t ret = 0;
-        int dxl_ret = packet_handler_->write1ByteTxRx(port_handler_, DXL_ID, ADDR_PRO_OPERATING_MODE, operating_mode, &ret);
+        int dxl_ret = packet_handler_->write1ByteTxRx(port_handler_, DXL_ID, ADDR_PRO_TORQUE_ENABLE, torque_enable, &ret);
         if (dxl_ret != COMM_SUCCESS) {
             rclcpp::shutdown();
         }
 
-        uint8_t torque_enable = 1;
+        uint8_t operating_mode = 0;
+        dxl_ret = packet_handler_->write1ByteTxRx(port_handler_, DXL_ID, ADDR_PRO_OPERATING_MODE, operating_mode, &ret);
+        if (dxl_ret != COMM_SUCCESS) {
+            rclcpp::shutdown();
+        }
+
+        torque_enable = 1;
         dxl_ret = packet_handler_->write1ByteTxRx(port_handler_, DXL_ID, ADDR_PRO_TORQUE_ENABLE, torque_enable, &ret);
         if (dxl_ret != COMM_SUCCESS) {
             rclcpp::shutdown();
@@ -62,7 +71,7 @@ public:
 
     ~DynamixelController()
     {
-        shutdown_requested_ = true; //gracefull shutdown of input thread doesnt really work, still...
+        shutdown_requested_ = true; //gracefull shutdown of input thread doesnt really work, input is 
 
         if (input_thread_.joinable()) {
             input_thread_.join();
@@ -104,7 +113,7 @@ private:
             }
 
             {
-                std::lock_guard<std::mutex> lock(current_mutex_); //do we really need a mutex here?
+                std::lock_guard<std::mutex> lock(current_mutex_); //do we really need a mutex here? YES!
                 desired_current_mA_ = new_current;
             }
             update_goal_current();
@@ -113,7 +122,7 @@ private:
 
     void update_goal_current()
     {
-        int goal_current_raw = static_cast<int>(desired_current_mA_ / CURRENT_CONVERSION_FACTOR); //do we really need to scale values?
+        int goal_current_raw = static_cast<int>(desired_current_mA_ / CURRENT_CONVERSION_FACTOR); //do we really need to scale values? YES!
 
         uint8_t ret = 0;
         int dxl_ret = packet_handler_->write2ByteTxRx(port_handler_, DXL_ID, ADDR_PRO_GOAL_CURRENT, goal_current_raw, &ret);
