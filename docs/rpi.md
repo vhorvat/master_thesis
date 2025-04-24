@@ -78,3 +78,61 @@ Additionally, if the connection is not established automatically, restart the **
 sudo systemctl restart NetworkManager
 ```
 Now you have an Ethernet connection to the Raspberry Pi, and both your computer and the Raspberry Pi are connected to the external internet via their wireless interfaces.
+
+# Ethernet, fast and simple
+
+RPi:
+
+```
+sudo nano /etc/netplan/99-ethernet.yaml
+network:
+  version: 2
+  ethernets:
+    eth0:
+      addresses: [192.168.50.2/24]
+      dhcp4: no
+```
+And then:
+```
+sudo netplan apply
+```
+
+PC:
+```
+sudo nano /etc/netplan/99-ethernet.yaml
+```
+
+```
+network:
+  version: 2
+  renderer: NetworkManager
+  ethernets:
+    enx4086cbc8819d:
+      addresses: [192.168.50.1/24]
+      dhcp4: no
+```
+
+```
+sudo netplan apply
+```
+
+Also, check for routes with ```ip route```
+
+# CycloneDDS, normal setup from their manual and then:
+
+PC:
+```
+export CYCLONEDDS_URI="<CycloneDDS><Discovery><Peers><Peer address=\"192.168.50.2\"/></Peers></Discovery></CycloneDDS>"
+```
+RPi:
+```
+export CYCLONEDDS_URI="<CycloneDDS><Discovery><Peers><Peer address=\"192.168.50.1\"/></Peers></Discovery></CycloneDDS>"
+```
+
+# UDEV rule for ESP32 Nano:
+
+sudo nano /etc/udev/rules.d/99-my-serial.rules
+```
+# Rule for ESP32
+SUBSYSTEM=="tty", ATTRS{serial}=="3C8427C2F0F0", SYMLINK+="esp_load_cell", MODE="0666"
+```

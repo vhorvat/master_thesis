@@ -1,10 +1,11 @@
 #include "rclcpp/rclcpp.hpp"
 #include "dynamixel_sdk/dynamixel_sdk.h"
-#include <iostream>
-#include <limits>
-#include <thread>
+#include "std_msgs/msg/string.hpp"
+
+#include <string>
 #include <mutex>
 #include <atomic>
+#include <algorithm>
 
 #define ADDR_PRO_TORQUE_ENABLE        64
 #define ADDR_PRO_GOAL_CURRENT         102
@@ -17,7 +18,7 @@
 #define BAUDRATE                      1000000
 #define DEVICENAME                    "/dev/ttyUSB0"
 
-#define CURRENT_CONVERSION_FACTOR    4.5 //from dynamixel wizard, why? /SDK says 4.5
+#define CURRENT_CONVERSION_FACTOR     4.5 // from dynamixel wizard, why? /SDK says 4.5
 
 class DynamixelController : public rclcpp::Node
 {
@@ -27,60 +28,78 @@ public:
         port_handler_ = dynamixel::PortHandler::getPortHandler(DEVICENAME);
         packet_handler_ = dynamixel::PacketHandler::getPacketHandler(PROTOCOL_VERSION);
 
-        if (port_handler_->openPort()) {
-        } else {
+        if (!port_handler_->openPort()) {
+            RCLCPP_ERROR(this->get_logger(), "Failed to open port");
             rclcpp::shutdown();
         }
 
-        if (port_handler_->setBaudRate(BAUDRATE)) {
-        } else {
+        if (!port_handler_->setBaudRate(BAUDRATE)) {
+            RCLCPP_ERROR(this->get_logger(), "Failed to set baudrate");
             rclcpp::shutdown();
         }
-
-        //for safety reasons if we crash, we need to access protected EEPROM memory of the MX64 (enable and disable torque)
-        //maybe add ret error checking?
 
         uint8_t torque_enable = 0; 
         uint8_t ret = 0;
         int dxl_ret = packet_handler_->write1ByteTxRx(port_handler_, DXL_ID, ADDR_PRO_TORQUE_ENABLE, torque_enable, &ret);
         if (dxl_ret != COMM_SUCCESS) {
+            RCLCPP_ERROR(this->get_logger(), "Failed to disable torque");
             rclcpp::shutdown();
         }
 
         uint8_t operating_mode = 0;
         dxl_ret = packet_handler_->write1ByteTxRx(port_handler_, DXL_ID, ADDR_PRO_OPERATING_MODE, operating_mode, &ret);
         if (dxl_ret != COMM_SUCCESS) {
+            RCLCPP_ERROR(this->get_logger(), "Failed to set operating mode");
             rclcpp::shutdown();
         }
 
         torque_enable = 1;
         dxl_ret = packet_handler_->write1ByteTxRx(port_handler_, DXL_ID, ADDR_PRO_TORQUE_ENABLE, torque_enable, &ret);
         if (dxl_ret != COMM_SUCCESS) {
+            RCLCPP_ERROR(this->get_logger(), "Failed to enable torque");
             rclcpp::shutdown();
         }
 
         update_goal_current();
 
-        input_thread_ = std::thread(&DynamixelController::input_loop, this);
+        subscription_ = this->create_subscription<std_msgs::msg::String>(
+            "/serial_esp_data", 10,
+            [this](const std_msgs::msg::String::SharedPtr msg) {
+                try {
+                    float input_val = std::stof(msg->data);
+                    RCLCPP_INFO(this->get_logger(), "Received value: %.2f", input_val);
+
+                    float clamped_val = std::max(std::min(input_val, 200000.0f), -200000.0f); #odokativno
+                    float scaled_val = (clamped_val / 200000.0f) * 1000.0f;
+
+                    {
+                        std::lock_guard<std::mutex> lock(current_mutex_);
+                        desired_current_mA_ = scaled_val;
+                    }
+
+                    RCLCPP_INFO(this->get_logger(), "Scaled current (mA): %.2f", scaled_val);
+
+                    update_goal_current();
+                } catch (const std::exception &e) {
+                    RCLCPP_WARN(this->get_logger(), "Invalid data received on /serial_esp_data: '%s'", msg->data.c_str());
+                }
+            });
 
         timer_ = this->create_wall_timer(
-            std::chrono::milliseconds(500),
+            std::chrono::milliseconds(100),
             std::bind(&DynamixelController::check_current, this)
         );
     }
 
     ~DynamixelController()
     {
-        shutdown_requested_ = true; //gracefull shutdown of input thread doesnt really work, input is 
-
-        if (input_thread_.joinable()) {
-            input_thread_.join();
-        }
+        shutdown_requested_ = true;
 
         uint8_t torque_enable = 0;
         uint8_t ret = 0;
         int dxl_ret = packet_handler_->write1ByteTxRx(port_handler_, DXL_ID, ADDR_PRO_TORQUE_ENABLE, torque_enable, &ret);
         if (dxl_ret != COMM_SUCCESS) {
+            RCLCPP_WARN(this->get_logger(), "Failed to disable torque on shutdown");
         }
     }
 
@@ -91,49 +110,29 @@ private:
         uint8_t ret = 0;
         int dxl_ret = packet_handler_->read2ByteTxRx(port_handler_, DXL_ID, ADDR_PRO_PRESENT_CURRENT, (uint16_t*)&present_current, &ret);
         if (dxl_ret != COMM_SUCCESS) {
+            RCLCPP_ERROR(this->get_logger(), "Failed to read present current");
             rclcpp::shutdown();
         }
 
         float current_mA = present_current * CURRENT_CONVERSION_FACTOR;
-        //RCLCPP_INFO(this->get_logger(), "Current: %.2f ", current_mA);
-    }
-
-    void input_loop()
-    {
-        while (!shutdown_requested_) {
-            std::cout << "Enter the desired current (in mA)! Positvie values go in CW and negative in CCW: ";
-            float new_current;
-            std::cin >> new_current;
-
-            while (std::cin.fail()) {
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                std::cout << "Invalid input. Try again: ";
-                std::cin >> new_current;
-            }
-
-            {
-                std::lock_guard<std::mutex> lock(current_mutex_); //do we really need a mutex here? YES!
-                desired_current_mA_ = new_current;
-            }
-            update_goal_current();
-        }
+        // RCLCPP_INFO(this->get_logger(), "Current: %.2f mA", current_mA);
     }
 
     void update_goal_current()
     {
-        int goal_current_raw = static_cast<int>(desired_current_mA_ / CURRENT_CONVERSION_FACTOR); //do we really need to scale values? YES!
+        int goal_current_raw = static_cast<int>(desired_current_mA_ / CURRENT_CONVERSION_FACTOR);
 
         uint8_t ret = 0;
         int dxl_ret = packet_handler_->write2ByteTxRx(port_handler_, DXL_ID, ADDR_PRO_GOAL_CURRENT, goal_current_raw, &ret);
         if (dxl_ret != COMM_SUCCESS) {
+            RCLCPP_ERROR(this->get_logger(), "Failed to set goal current");
         }
     }
 
     dynamixel::PortHandler *port_handler_;
     dynamixel::PacketHandler *packet_handler_;
     rclcpp::TimerBase::SharedPtr timer_;
-    std::thread input_thread_;
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
     std::mutex current_mutex_;
     std::atomic<bool> shutdown_requested_;
     float desired_current_mA_;
