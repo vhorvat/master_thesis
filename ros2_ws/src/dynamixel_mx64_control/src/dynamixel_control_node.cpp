@@ -69,7 +69,7 @@ public:
                     float input_val = std::stof(msg->data);
                     RCLCPP_INFO(this->get_logger(), "Received value: %.2f", input_val);
 
-                    float clamped_val = std::max(std::min(input_val, 200000.0f), -200000.0f); #odokativno
+                    float clamped_val = std::max(std::min(input_val, 200000.0f), -200000.0f);
                     float scaled_val = (clamped_val / 200000.0f) * 1000.0f;
 
                     {
@@ -86,7 +86,7 @@ public:
             });
 
         timer_ = this->create_wall_timer(
-            std::chrono::milliseconds(100),
+            std::chrono::milliseconds(500),
             std::bind(&DynamixelController::check_current, this)
         );
     }
