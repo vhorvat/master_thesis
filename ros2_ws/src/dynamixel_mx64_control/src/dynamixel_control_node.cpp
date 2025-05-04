@@ -69,8 +69,8 @@ public:
                     float input_val = std::stof(msg->data);
                     RCLCPP_INFO(this->get_logger(), "Received value: %.2f", input_val);
 
-                    float clamped_val = std::max(std::min(input_val, 200000.0f), -200000.0f);
-                    float scaled_val = (clamped_val / 200000.0f) * 1000.0f;
+                    float clamped_val = std::max(std::min(input_val, 300000.0f), -300000.0f);
+                    float scaled_val = (clamped_val / 300000.0f) * 500.0f;
 
                     {
                         std::lock_guard<std::mutex> lock(current_mutex_);
