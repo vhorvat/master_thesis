@@ -34,8 +34,8 @@ class OptoForceSensor:
 
     def __init__(self, port='/dev/ttyACM0', baudrate=1000000, 
                  initial_speed_hz=1000, initial_filter_hz=30, zero_on_init=True,
-                 fx_gain=33.74, fy_gain=35.61, fz_gain=10.0,
-                 tx_gain=100.0, ty_gain=100.0, tz_gain=100.0,
+                 fx_gain=33.74, fy_gain=35.61, fz_gain=4.05,
+                 tx_gain=587.20, ty_gain=566.37, tz_gain=868.35,
                  timeout=0.05): 
         self.port = port
         self.baudrate = baudrate
