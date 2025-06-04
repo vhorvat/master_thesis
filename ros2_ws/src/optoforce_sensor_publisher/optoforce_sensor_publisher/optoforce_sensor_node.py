@@ -193,7 +193,7 @@ class ForcePublisher(Node):
 def main():
     rclpy.init()
     sensor = OptoForceSensor(
-        port='/dev/ttyACM0',
+        port='/dev/ttyACM1',
         baudrate=1000000,
         initial_speed_hz=100,
         initial_filter_hz=15,
