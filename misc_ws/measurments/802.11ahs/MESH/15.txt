@@ -1,0 +1,70 @@
+pi@pi2:~$ iperf3 -c 192.168.200.1 -u -b 10M -t 30 -i 0.5
+Connecting to host 192.168.200.1, port 5201
+[  5] local 192.168.200.48 port 51337 connected to 192.168.200.1 port 5201
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+[  5]   0.00-0.50   sec   19.5 KBytes  0.32 Mbits/sec  14
+[  5]   0.50-1.00   sec   6.10 KBytes  0.10 Mbits/sec  4
+[  5]   1.00-1.50   sec   1.22 KBytes  0.02 Mbits/sec  1
+[  5]   1.50-2.00   sec   13.4 KBytes  0.22 Mbits/sec  9
+[  5]   2.00-2.50   sec   0.00 Bytes   0.00 Mbits/sec  5
+[  5]   2.50-3.00   sec   0.00 Bytes   0.00 Mbits/sec  4
+[  5]   3.00-3.50   sec   4.88 KBytes  0.08 Mbits/sec  3
+[  5]   3.50-4.00   sec   18.3 KBytes  0.30 Mbits/sec  13
+[  5]   4.00-4.50   sec   7.32 KBytes  0.12 Mbits/sec  5
+[  5]   4.50-5.00   sec   20.7 KBytes  0.34 Mbits/sec  15
+[  5]   5.00-5.50   sec   3.66 KBytes  0.06 Mbits/sec  2
+[  5]   5.50-6.00   sec   12.2 KBytes  0.20 Mbits/sec  8
+[  5]   6.00-6.50   sec   8.54 KBytes  0.14 Mbits/sec  6
+[  5]   6.50-7.00   sec   22.0 KBytes  0.36 Mbits/sec  15
+[  5]   7.00-7.50   sec   4.88 KBytes  0.08 Mbits/sec  3
+[  5]   7.50-8.00   sec   15.9 KBytes  0.26 Mbits/sec  11
+[  5]   8.00-8.50   sec   0.00 Bytes   0.00 Mbits/sec  6
+[  5]   8.50-9.00   sec   0.00 Bytes   0.00 Mbits/sec  5
+[  5]   9.00-9.50   sec   0.00 Bytes   0.00 Mbits/sec  4
+[  5]   9.50-10.00  sec   11.0 KBytes  0.18 Mbits/sec  8
+[  5]  10.00-10.50  sec   19.5 KBytes  0.32 Mbits/sec  14
+[  5]  10.50-11.00  sec   6.10 KBytes  0.10 Mbits/sec  4
+[  5]  11.00-11.50  sec   14.6 KBytes  0.24 Mbits/sec  10
+[  5]  11.50-12.00  sec   2.44 KBytes  0.04 Mbits/sec  2
+[  5]  12.00-12.50  sec   17.1 KBytes  0.28 Mbits/sec  12
+[  5]  12.50-13.00  sec   7.32 KBytes  0.12 Mbits/sec  5
+[  5]  13.00-13.50  sec   23.2 KBytes  0.38 Mbits/sec  16
+[  5]  13.50-14.00  sec   9.76 KBytes  0.16 Mbits/sec  7
+[  5]  14.00-14.50  sec   4.88 KBytes  0.08 Mbits/sec  3
+[  5]  14.50-15.00  sec   13.4 KBytes  0.22 Mbits/sec  9
+[  5]  15.00-15.50  sec   18.3 KBytes  0.30 Mbits/sec  13
+[  5]  15.50-16.00  sec   0.00 Bytes   0.00 Mbits/sec  5
+[  5]  16.00-16.50  sec   1.22 KBytes  0.02 Mbits/sec  1
+[  5]  16.50-17.00  sec   15.9 KBytes  0.26 Mbits/sec  11
+[  5]  17.00-17.50  sec   7.32 KBytes  0.12 Mbits/sec  5
+[  5]  17.50-18.00  sec   20.7 KBytes  0.34 Mbits/sec  15
+[  5]  18.00-18.50  sec   8.54 KBytes  0.14 Mbits/sec  6
+[  5]  18.50-19.00  sec   12.2 KBytes  0.20 Mbits/sec  8
+[  5]  19.00-19.50  sec   3.66 KBytes  0.06 Mbits/sec  2
+[  5]  19.50-20.00  sec   19.5 KBytes  0.32 Mbits/sec  14
+[  5]  20.00-20.50  sec   6.10 KBytes  0.10 Mbits/sec  4
+[  5]  20.50-21.00  sec   14.6 KBytes  0.24 Mbits/sec  10
+[  5]  21.00-21.50  sec   0.00 Bytes   0.00 Mbits/sec  4
+[  5]  21.50-22.00  sec   0.00 Bytes   0.00 Mbits/sec  6
+[  5]  22.00-22.50  sec   9.76 KBytes  0.16 Mbits/sec  7
+[  5]  22.50-23.00  sec   22.0 KBytes  0.36 Mbits/sec  15
+[  5]  23.00-23.50  sec   4.88 KBytes  0.08 Mbits/sec  3
+[  5]  23.50-24.00  sec   17.1 KBytes  0.28 Mbits/sec  12
+[  5]  24.00-24.50  sec   7.32 KBytes  0.12 Mbits/sec  5
+[  5]  24.50-25.00  sec   11.0 KBytes  0.18 Mbits/sec  8
+[  5]  25.00-25.50  sec   2.44 KBytes  0.04 Mbits/sec  2
+[  5]  25.50-26.00  sec   20.7 KBytes  0.34 Mbits/sec  15
+[  5]  26.00-26.50  sec   8.54 KBytes  0.14 Mbits/sec  6
+[  5]  26.50-27.00  sec   13.4 KBytes  0.22 Mbits/sec  9
+[  5]  27.00-27.50  sec   6.10 KBytes  0.10 Mbits/sec  4
+[  5]  27.50-28.00  sec   18.3 KBytes  0.30 Mbits/sec  13
+[  5]  28.00-28.50  sec   4.88 KBytes  0.08 Mbits/sec  3
+[  5]  28.50-29.00  sec   15.9 KBytes  0.26 Mbits/sec  11
+[  5]  29.00-29.50  sec   7.32 KBytes  0.12 Mbits/sec  5
+[  5]  29.50-30.00  sec   23.2 KBytes  0.38 Mbits/sec  16
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-30.00  sec   572 KBytes   0.15 Mbits/sec  0.000 ms  0/450 (0%)  sender
+[  5]   0.00-30.07  sec   521 KBytes   0.14 Mbits/sec  74.329 ms  41/450 (9.1%)  receiver
+
+iperf3: done.

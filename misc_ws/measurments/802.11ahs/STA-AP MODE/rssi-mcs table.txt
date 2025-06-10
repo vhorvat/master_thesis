@@ -1,0 +1,10 @@
+5   0.16	0.20 Mbps	MCS 1	0.30 Mbps   -94 dBm
+2   0.24	0.30 Mbps	MCS 1	0.30 Mbps	-88 dBm
+3   0.61	0.76 Mbps	MCS 3	0.90 Mbps	-82 dBm
+4   1.46	1.83 Mbps	MCS 7	1.80 Mbps	-76 dBm
+7   1.89	2.36 Mbps	MCS 8	2.00 Mbps	-72 dBm
+2   2.09	2.61 Mbps	MCS 9	4.40 Mbps	-61 dBm
+6   2.15	2.69 Mbps	MCS 9	4.40 Mbps	-57 dBm
+1   2.43	3.06 Mbps	MCS 9	4.40 Mbps	-46 dBm
+
+#PROVJERI JOŠ JEDNOM MCSove

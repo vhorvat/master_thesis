@@ -1,0 +1,70 @@
+pi@pi2:~$ iperf3 -c 192.168.200.1 -u -b 10M -t 30 -i 0.5
+Connecting to host 192.168.200.1, port 5201
+[  5] local 192.168.200.48 port 51337 connected to 192.168.200.1 port 5201
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+[  5]   0.00-0.50   sec   54.1 KBytes  0.89 Mbits/sec  37
+[  5]   0.50-1.00   sec   48.9 KBytes  0.80 Mbits/sec  33
+[  5]   1.00-1.50   sec   61.2 KBytes  1.00 Mbits/sec  42
+[  5]   1.50-2.00   sec   50.4 KBytes  0.83 Mbits/sec  34
+[  5]   2.00-2.50   sec   45.8 KBytes  0.75 Mbits/sec  31
+[  5]   2.50-3.00   sec   58.7 KBytes  0.96 Mbits/sec  40
+[  5]   3.00-3.50   sec   63.6 KBytes  1.04 Mbits/sec  43
+[  5]   3.50-4.00   sec   52.9 KBytes  0.87 Mbits/sec  36
+[  5]   4.00-4.50   sec   47.3 KBytes  0.78 Mbits/sec  32
+[  5]   4.50-5.00   sec   41.1 KBytes  0.67 Mbits/sec  28
+[  5]   5.00-5.50   sec   55.5 KBytes  0.91 Mbits/sec  38
+[  5]   5.50-6.00   sec   60.0 KBytes  0.98 Mbits/sec  41
+[  5]   6.00-6.50   sec   51.6 KBytes  0.85 Mbits/sec  35
+[  5]   6.50-7.00   sec   44.3 KBytes  0.73 Mbits/sec  30
+[  5]   7.00-7.50   sec   49.6 KBytes  0.81 Mbits/sec  34
+[  5]   7.50-8.00   sec   57.2 KBytes  0.94 Mbits/sec  39
+[  5]   8.00-8.50   sec   62.4 KBytes  1.02 Mbits/sec  42
+[  5]   8.50-9.00   sec   53.6 KBytes  0.88 Mbits/sec  36
+[  5]   9.00-9.50   sec   48.1 KBytes  0.79 Mbits/sec  33
+[  5]   9.50-10.00  sec   42.9 KBytes  0.70 Mbits/sec  29
+[  5]  10.00-10.50  sec   56.3 KBytes  0.92 Mbits/sec  38
+[  5]  10.50-11.00  sec   59.2 KBytes  0.97 Mbits/sec  40
+[  5]  11.00-11.50  sec   50.9 KBytes  0.83 Mbits/sec  35
+[  5]  11.50-12.00  sec   46.5 KBytes  0.76 Mbits/sec  32
+[  5]  12.00-12.50  sec   52.3 KBytes  0.86 Mbits/sec  35
+[  5]  12.50-13.00  sec   58.0 KBytes  0.95 Mbits/sec  39
+[  5]  13.00-13.50  sec   64.8 KBytes  1.06 Mbits/sec  44
+[  5]  13.50-14.00  sec   54.8 KBytes  0.90 Mbits/sec  37
+[  5]  14.00-14.50  sec   49.6 KBytes  0.81 Mbits/sec  34
+[  5]  14.50-15.00  sec   43.7 KBytes  0.72 Mbits/sec  30
+[  5]  15.00-15.50  sec   57.2 KBytes  0.94 Mbits/sec  39
+[  5]  15.50-16.00  sec   60.7 KBytes  0.99 Mbits/sec  41
+[  5]  16.00-16.50  sec   51.6 KBytes  0.85 Mbits/sec  35
+[  5]  16.50-17.00  sec   47.3 KBytes  0.78 Mbits/sec  32
+[  5]  17.00-17.50  sec   53.6 KBytes  0.88 Mbits/sec  36
+[  5]  17.50-18.00  sec   58.7 KBytes  0.96 Mbits/sec  40
+[  5]  18.00-18.50  sec   61.7 KBytes  1.01 Mbits/sec  42
+[  5]  18.50-19.00  sec   55.5 KBytes  0.91 Mbits/sec  38
+[  5]  19.00-19.50  sec   50.4 KBytes  0.83 Mbits/sec  34
+[  5]  19.50-20.00  sec   45.1 KBytes  0.74 Mbits/sec  31
+[  5]  20.00-20.50  sec   59.2 KBytes  0.97 Mbits/sec  40
+[  5]  20.50-21.00  sec   63.6 KBytes  1.04 Mbits/sec  43
+[  5]  21.00-21.50  sec   52.9 KBytes  0.87 Mbits/sec  36
+[  5]  21.50-22.00  sec   48.1 KBytes  0.79 Mbits/sec  33
+[  5]  22.00-22.50  sec   42.2 KBytes  0.69 Mbits/sec  29
+[  5]  22.50-23.00  sec   56.3 KBytes  0.92 Mbits/sec  38
+[  5]  23.00-23.50  sec   60.0 KBytes  0.98 Mbits/sec  41
+[  5]  23.50-24.00  sec   51.6 KBytes  0.85 Mbits/sec  35
+[  5]  24.00-24.50  sec   46.5 KBytes  0.76 Mbits/sec  32
+[  5]  24.50-25.00  sec   52.3 KBytes  0.86 Mbits/sec  35
+[  5]  25.00-25.50  sec   58.0 KBytes  0.95 Mbits/sec  39
+[  5]  25.50-26.00  sec   62.4 KBytes  1.02 Mbits/sec  42
+[  5]  26.00-26.50  sec   54.8 KBytes  0.90 Mbits/sec  37
+[  5]  26.50-27.00  sec   49.6 KBytes  0.81 Mbits/sec  34
+[  5]  27.00-27.50  sec   44.3 KBytes  0.73 Mbits/sec  30
+[  5]  27.50-28.00  sec   57.2 KBytes  0.94 Mbits/sec  39
+[  5]  28.00-28.50  sec   61.2 KBytes  1.00 Mbits/sec  42
+[  5]  28.50-29.00  sec   53.6 KBytes  0.88 Mbits/sec  36
+[  5]  29.00-29.50  sec   48.9 KBytes  0.80 Mbits/sec  33
+[  5]  29.50-30.00  sec   54.1 KBytes  0.89 Mbits/sec  37
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-30.00  sec   3.11 MBytes  0.87 Mbits/sec  0.000 ms  0/2130 (0%)  sender
+[  5]   0.00-30.01  sec   3.02 MBytes  0.81 Mbits/sec 13.332 ms  0/2130 (0%)  receiver
+
+iperf3: done.
