@@ -110,7 +110,7 @@ Sustav je podvrgnut nizu testova kako bi se verificirala funkcionalnost i perfor
 ### 4.2. Testiranje opornosti optičkog kabela
 
 *   **Metodologija:** Kabel G.657.A2 namotan je na vitlo radijusa 7.5 mm (minimalni specificirani radijus), te je mjerena mrežna propusnost pomoću alata `iperf3` nakon svakog namotaja.
-*   **Rezultati:** Nije zabilježen pad performansi čak ni pri maksimalnom broju namotaja. Propusnost je konstantno bila na teorijskom maksimumu Ethernet veze od ~94 Mbps (Slika 6.5), potvrđujući da dizajn vitla i odabir kabela ne unose značajne gubitke.
+*   **Rezultati:** Nije zabilježen pad performansi čak ni pri maksimalnom broju namotaja. Propusnost je konstantno bila na teorijskom maksimumu Ethernet veze od ~94 Mbps (Slika 6.5 u radu), potvrđujući da dizajn vitla i odabir kabela ne unose značajne gubitke.
 
 ### 4.3. Testiranje performansi Wi-Fi HaLow
 
