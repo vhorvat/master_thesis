@@ -4,7 +4,6 @@
 On your SD install RaspOS 64 bit using RaspImager.
 
 We can install arm64 because from Bookworm, 32 bit images decouple userland and kernel with 32/64 bit versions anyway.
-(JOŠ SE NE MIRIM S OVOM GLUPOSTI JEBOTE.)
 
 Install 6.6 version, ideally with 6.6.51 kernel, as this guide will be based on EXACTLY this kernel.
 If you choose to do kernel uplift, BE AWARE, you will be fixing bugs that will not be part of this walkthrough!
@@ -14,7 +13,7 @@ To set-up initial WiFi config, use RaspiImager settings, or modify wpa-supplican
 
 Apart from WiFi settings, you will need to enable SSH too!
 
-Ethernet WILL BE required in later steps.!
+Ethernet WILL BE required in later steps!
 
 ### RPi
 After successfully SSHing to your RPi, DO NOT UPDATE RPI!
@@ -33,8 +32,6 @@ sudo nano /etc/apt/preferences.d/no-kernel-upgrade
 ```
 
 ```
-put:
-paste:
 Package: linux-image*
 Pin: release *
 Pin-Priority: -1
@@ -48,14 +45,14 @@ Pin: release *
 Pin-Priority: -1
 ```
 
-now do sudo update, upgrade whatever.
+now do sudo update, upgrade.
 
 ### We need to switch away from NetworkManager!
 
 Next step will probabbly fuck up your internet connection:
 Best way is to manually reconnect to WiFi by providing necessary wpa-config before this step.
 
-or just connect Rpi to your router, it really is a lot easier.
+or just connect Rpi to your router or PC with Ethernet, it really is a lot easier.
 
 ```bash
 
@@ -72,9 +69,10 @@ sudo apt install iptables
 ```
 
 
-### You can now follow everything else from their guide.
+### You can now follow everything else from NRC7394 RPi guide.
+
 While builiding kernel module, you will encounter errors.
-Fix them one by one if no .patch is provided a to bude kada bude.
+Fix them one by one if no .patch is provided.
 
 
 ## ROS2 Jazzy (prebuilt za Debian Bookworm)
@@ -86,4 +84,5 @@ sudo pip install --break-system-packages vcstool colcon-common-extensions
 ```
 
 everything else is ROS2 classic setup.
+
 Also! Don't forget, since we never added sources, EVERY package will need to be built and sourced from the source code!

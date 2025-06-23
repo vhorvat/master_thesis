@@ -1,0 +1,135 @@
+Ispričavam se na nesporazumu. U pravu ste, platforma je prikazala sadržaj na način koji nije bio jednostavan za kopiranje.
+
+Evo čistog, sirovog teksta bez ikakvog dodatnog formatiranja. Samo označite i kopirajte sve od početka do kraja.
+
+---
+
+# WiFi 802.11ah from boot
+
+## PC1:
+
+```bash
+nmcli connection modify <connection name> ipv4.addresses 192.168.49.1/24
+nmcli connection modify <connection name> ipv4.method shared
+nmcli connection down <connection name>
+nmcli connection up <connection name>
+```
+
+Nakon ovoga, mreža `<connection name>` koristiti će 192.168.49.1/24 IP range preko shared intrfacea. Adresa mreže je 192.168.49.0, a GW je 192.168.49.1. RPi spojen na ovu mrežu dobiti će adresu 192.168.49.X.
+
+## PC2 ili scout:
+
+```bash
+nmcli connection modify <connection name> ipv4.addresses 192.168.50.1/24
+nmcli connection modify <connection name> ipv4.method shared
+nmcli connection down <connection name>
+nmcli connection up <connection name>
+```
+
+Nakon ovoga, mreža `<connection name>` koristiti će 192.168.50.1/24 IP range preko shared intrfacea. Adresa mreže je 192.168.50.0, a GW je 192.168.50.1. RPi spojen na ovu mrežu dobiti će adresu 192.168.50.X.
+
+## WiFi HaLow Setup:
+
+U folderu `~/nrc_pkg/script/` nalazi se konfiguracijska skripta `start.py`.
+
+Na **RPi1** koji će nam biti AP, pokrenuti ćemo:
+```bash
+./start.py 1 0 HR
+```
+
+Na **RPi2** koji će nam biti STA pokrenut ćemo:
+```bash
+./start.py 0 0 HR
+```
+
+Skripta je iskonfigurirana prethodno i ne treba ju o ovom trenutku mijenjati. (Radoznalost je dobrodošla!)
+
+Nakon ovih koraka, svaki od RPieva imati će `eth0` i `wlan0` interface s dodijeljenom IP adresom. Moguće je provjeriti s:
+```bash
+ip a
+```
+
+## Routing:
+
+Na svakom od RPieva potrebno je napraviti:
+
+### 1) IP Forwarding:
+
+```bash
+sudo sysctl -w net.ipv4.ip_forward=1
+```
+
+ili ako želimo da ovo bude stalno:
+
+```bash
+echo "net.ipv4.ip_forward=1" | sudo tee -a /etc/sysctl.conf
+```
+
+### Odrediti IP adrese RPieva:
+
+- **AP** će uvijek imati statičnu adresu `192.168.200.1`
+- **RPi1** će uvijek imati dinamičku adresu `192.168.200.X`
+
+#### RPi1:
+```bash
+sudo ip route add 192.168.49.0/24 via <IP adresa RPi2> dev wlan0
+```
+
+#### RPi2:
+```bash
+sudo ip route add 192.168.50.0/24 via 192.168.200.1 dev wlan0
+```
+
+Ovo će reći RPievima kako da uređaji s `eth0` mreže jednog RPia dođu do `eth` mreže drugog RPia.
+
+#### PC1:
+```bash
+sudo ip route add 192.168.50.0/24 via <192.168.49.X IP adresa RPi1>
+sudo ip route add 192.168.200.0/24 via <192.168.49.X IP adresa RPi1>
+```
+
+#### PC2:
+```bash
+sudo ip route add 192.168.49.0/24 via <192.168.50.X IP adresa RPi2>
+sudo ip route add 192.168.200.0/24 via <192.168.49.X IP adresa RPi2>
+```
+
+Ovo će reći uređajima na `eth0` mrežama jednog RPia, kako da dođu do uređaja na `eth0` mrežama drugog RPia.
+
+Sada se mreža može isprobati pingajući `192.168.50.0/24` pool s `192.168.49.0/24` pool, ssh, iperf3... Podsjećam da jedna strana `iperf3 -s`, druga `-c` (server, klijent)
+
+---
+
+### Dodatno
+
+#### RPi1
+```bash
+sudo iptables -I FORWARD -j ACCEPT
+sudo iptables -I INPUT -j ACCEPT
+sudo iptables -I OUTPUT -j ACCEPT
+```
+
+#### RPi2
+```bash
+sudo iptables -I FORWARD -j ACCEPT
+sudo iptables -I INPUT -j ACCEPT
+sudo iptables -I OUTPUT -j ACCEPT
+```
+
+Ovi ruleovi će u potpunosti ubiti bilo kakav firewall.
+
+---
+
+### Dodatni prijedlog 2 za isprobati (NAT):
+
+Ovo nema smisla u mrežama gdje postoji static route i pretvorit će RPi1/2 u GW, svaki paket iz uređaja iza njih imati će IP GW-a, ne IP devicea, ono što sam nacrtao na ploči.
+
+#### RPi1:
+```bash
+sudo iptables -t nat -A POSTROUTING -o wlan0 -s 192.168.49.0/24 -j MASQUERADE
+```
+
+#### RPi2:
+```bash
+sudo iptables -t nat -A POSTROUTING -o wlan0 -s 192.168.50.0/24 -j MASQUERADE
+```

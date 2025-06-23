@@ -29,7 +29,7 @@ STA Pi will be 'gateway' for this interfce.
 sudo ip route add 192.168.200.0/24 via 10.42.0.184
 ```
 
-### STA Pi (10.42.0.1)
+### AP Pi (10.42.0.1)
 Enable forwarding:
 
 ```bash

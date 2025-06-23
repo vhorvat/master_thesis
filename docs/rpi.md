@@ -2,11 +2,11 @@
 
 This section will be used to describe the setup of the Raspberry Pi 4 used for development purposes.
 
-## OS Image Install (24.04 Server LTS)
+## OS image install (24.04 Server LTS)
 
 Before we begin with the installation and configuration of all the necessary software, it is required to install the operating system on our RPi4. To maintain maximum compatibility with the ROS2 Jazzy Jalisco version, we selected the Ubuntu 24.04.x Server LTS operating system. For simplicity, the host computer will also use Ubuntu 24.04 LTS in the Desktop version.
 
-## Raspberry Imager
+## Raspberry imager
 
 To create the SD card with the selected operating system and initial settings, we will use Raspberry Imager. Install it with:
 
@@ -34,7 +34,7 @@ In the next window, change the initial settings that make the first access easie
  
 Now we can proceed with the installation of the operating system on the SD card.
 
-## Ethernet Headless Setup
+## Ethernet headless setup
 ### Raspberry Pi
 
 Since we will use the RPi as a headless device (no keyboard, mouse, or monitor), and the WiFi interface will be required to create and share a wireless network, it is necessary to access the RPi via Ethernet.

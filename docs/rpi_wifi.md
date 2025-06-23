@@ -1,10 +1,10 @@
 
 
-## **Comprehensive Guide: Raspberry Pi 4 as Wi-Fi Access Point (Sharing PC's Internet (or not!))**
+## **Comprehensive guide: Raspberry Pi 4 as Wi-Fi AP (Sharing PC's Internet (or not!))**
 
 **Goal:**
 
--   PC (Ethernet, Internet via Wi-Fi) -> RPi (Ethernet, Static IP) -> RPi (WLAN, Access Point) -> Other Devices
+-   PC (Ethernet, Internet via Wi-Fi) -> RPi (Ethernet, Static IP) -> RPi (WLAN, Access Point) -> Other devices
     
 
 **Assumptions:**
@@ -113,7 +113,7 @@
 
     Apply: sudo netplan apply or use sudo netplan try which will give you 120s timeout option
         
-5.  **Enable IP Forwarding (RPi):**
+5.  **Enable IP forwarding (RPi):**
     
     ```
     sudo nano /etc/sysctl.conf
@@ -141,7 +141,7 @@
         
     -   If FORWARD policy is DROP, add: sudo iptables -A FORWARD -i eth0 -o wlan0 -j ACCEPT
         
-8.  **Start and Enable Services (RPi):**
+8.  **Start and enable services (RPi):**
     
     ```
     sudo systemctl unmask hostapd
