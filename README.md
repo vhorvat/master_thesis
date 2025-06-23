@@ -1,15 +1,26 @@
 # Heterogeni komunikacijski sustav za robotske operacije u CBRNe okruženju
+Ovaj repozitorij sadrži materijale, programski kod i dokumentaciju razvijenu u sklopu diplomskog rada izrađenog na **Sveučilištu u Zagrebu, Fakultetu elektrotehnike i računarstva**.
 
-### Što, zašto i kako
-CBRNE incidenti koji obuhvaćaju nekontrolirano oslobađanje kemijskih, bioloških, radioloških, nuklearnih ili eksplozivnih materijala stvaraju izuzetno opasna okruženja. Takvi događaji predstavljaju ozbiljnu prijetnju ljudskom zdravlju, okolišu i infrastrukturi, često čineći područje nedostupnim ili preopasnim za ljudsku intervenciju. Multiagentski robotski sustavi nude ključnu sposobnost za izviđanje, nadzor i intervenciju u ovim kritičnim scenarijima, značajno povećavajući sigurnost osoblja. Međutim, učinkovitost ovih robotskih timova uvelike ovisi o robusnoj i pouzdanoj komunikaciji, koja je često ugrožena u specifičnim uvjetima CBRNE okruženja. 
+**Autor:** Viktor Horvat
+**Mentor:** izv. prof. dr. sc. Matko Orsag
 
-Ovaj diplomski rad stoga istražuje i razvija heterogeni komunikacijski sustav dizajniran upravo za takve zahtjevne primjene. Sustav ima za cilj kombinirati prednosti različitih komunikacijskih tehnologija kako bi se osigurala otpornost i kontinuitet prijenosa podataka. U tu svrhu, analizirane su dostupne radio komunikacijske tehnologije s mogućnostima aktivnog umrežavanja te će se ispitati fizički sloj za prijenos podataka putem optičkog kabela za uporabu sustava u okolinama prisutnih jakih radio komunikacijskih smetnji ili namjernih ometnja aktivne radio komunikacije. Razvit će se specifične elektroničke komponente i programsko rješenje za integraciju radio i optičke komunikacije u jedinstvenu arhitekturu.  Funkcionalnost i performanse predloženog sustava ispitat će se unutar simuliranog heterogenog robotskog sustava koji oponaša operativne uvjete CBRNE incidenta, uz evaluaciju njegove efikasnosti i pouzdanosti.  Konačni cilj je stvoriti pouzdani, funkcionalni i integrirani komunikacijski sustav koji će unaprijediti sposobnosti i sigurnost robotskih timova u CBRNE operacijama. 
+## 1. Uvod i Cilj Rada
+
+Operacije u **kemijskom, biološkom, radiološkom, nuklearnom i eksplozivnom (CBRNe)** okruženju predstavljaju izniman rizik za ljudske timove. Upotreba multiagentskih robotskih sustava ključna je za izviđanje, nadzor i intervenciju u takvim uvjetima, no njihova učinkovitost ovisi o pouzdanosti komunikacijskog sustava, koji je često ugrožen zbog fizičkih prepreka, elektromagnetskih smetnji (EMI) ili namjernog ometanja.
+
+**Glavni cilj** ovog rada bio je istražiti, razviti i validirati **heterogeni komunikacijski sustav** koji osigurava robusnost i kontinuitet prijenosa podataka za robotske timove u CBRNe scenarijima. Sustav je dizajniran da kombinira prednosti dvaju fundamentalno različitih komunikacijskih medija:
+
+1.  **Optičke komunikacije putem kabela:** Pružaju iznimno visok kapacitet prijenosa i potpunu otpornost na radiofrekvencijske (RF) smetnje.
+2.  **Bežične radio komunikacije:** Osiguravaju mobilnost, fleksibilnost i mogućnost proširenja operativnog dometa.
+
 
 ### Shematski prikaz predloženog rješenja
 ![Shema sustava](docs/images/shema.png)
 
-### Bežični komunikacijski sustav
-Analizirane su tehničke specifikacije komercijalno dostupnih bežičnih komunikacijskih sustava u kategoriji korištenih frekvencija, brzine prijenosa, dometa, modulacije, potrošnje energije, sigurnostimogućnosti OTA (Over the Air) ažuriranja programskih kodova RF (Radio Frequency) sklopovlja, potrebne pretplate na uslugu prijenosa podataka, podrške za TCP/IP protokolni složaj, dostupnih topologija te otvorenost standarda na kojem se temelji njihovo funkcioniranje. Rezultati su dani u sljedećoj tablici:
+
+Rad je obuhvatio analizu dostupnih tehnologija, razvoj specijaliziranih elektroničkih i mehatroničkih komponenti, implementaciju programskog rješenja za integraciju te rigorozno testiranje cjelokupnog sustava u simuliranim operativnim uvjetima.
+
+Rezultati su dani u sljedećoj tablici:
 
 
 | Atributi                   | Wi-Fi HaLow                       | Bluetooth Low Energy | Z-Wave             | Zigbee                   | Wi-SUN                          | Sigfox                     | LoRaWAN                    | NB-IoT                    |
@@ -26,56 +37,98 @@ Analizirane su tehničke specifikacije komercijalno dostupnih bežičnih komunik
 | **Mrežna topologija**      | Zvijezda / Releji                 | P2P* / Mreža (Mesh)  | Mreža (Mesh)       | Mreža (Mesh)             | Mreža (Mesh)                    | Zvijezda                   | Zvijezda                   | Zvijezda                  |
 | **Otvoreni standard**      | IEEE 802.11ah                     | Bluetooth SIG        | Vlasnički          | IEEE 802.15.4            | IEEE 802.15.4g                  | Vlasnički                  | Vlasnički                  | 3GPP LTE Cat-NB1/NB2      |
 
-(izvor WiFi Aliance..)
+## 2. Arhitektura Sustava
 
-### WiFi HaLow
+Razvijeni sustav temelji se na modularnoj arhitekturi koja integrira hardverske i softverske komponente u jedinstvenu, funkcionalnu cjelinu.
 
-Nakon detaljne analize i usporedbe ključnih performansi dostupnih bežičnih tehnologija, odabrana je Wi-Fi HaLow tehnologija, specificirana standardom IEEE 802.11ah. Ova tehnologija koristi nelicencirani frekvencijski pojas ispod 1 GHz, tipično centralnu frekvenciju 868MHz na području Europe, što fizikalno omogućuje superioran domet signala, premašujući desetak kilometara te značajno bolju penetraciju kroz građevinske materijale i druge prepreke u usporedbi s tehnologijama koje koriste zasićeni 2.4 GHz pojas, poput Bluetooth Low Energy ili Zigbee bežičnih tehnologija.
+### 2.1. Hibridni Komunikacijski Pristup
 
-Wi-Fi HaLow nudi iznimno širok i prilagodljiv raspon brzina prijenosa podataka, skalirajući od minimalnih 150 kbps za energetski učinkovite senzorske aplikacije do maksimalnih 86.7 Mbps korištenjem kanala širine 16 MHz i najviše modulacijsko-kodne sheme (MCS), čime se osigurava kapacitet za prijenos raznolikog prometa od osnovne telemetrije i kontrolnih signala do video prijenosa visoke razlučivosti s robotskih platformi. Robusnost komunikacije u uvjetima višestaznog širenja signala, karakterističnog za kompleksna urbana ili industrijska CBRNe okruženja, postiže se primjenom napredne OFDM (Orthogonal Frequency-Division Multiplexing) modulacije uz podršku za adaptivne sheme poput BPSK, QPSK, te 16/64/256 QAM, optimizirajući spektralnu efikasnost i otpornost na smetnje. Iako je protokol dizajniran s mehanizmima za nisku potrošnju energije, uključujući Target Wake Time (TWT) koji omogućuje uređajima dugotrajne periode spavanja, stvarna energetska bilanca na mobilnoj robotskoj platformi ovisit će o konfiguraciji izlazne snage RF predajnika, odabranoj MCS shemi i radnom ciklusu komunikacije, no sami temelji protokola omogućuju znatno efikasnije upravljanje energijom od tradicionalnih Wi-Fi standarda. 
- 
-Sigurnost komunikacijskog kanala, ključna za integritet kontrolnih naredbi i povjerljivost prikupljenih podataka, osigurana je implementacijom suvremenog WPA3 sigurnosnog standarda, koji uključuje poboljšane mehanizme autentifikacije (poput SAE - Simultaneous Authentication of Equals) i snažnu enkripciju. Značajna operativna prednost je nativna podrška za OTA (Over-the-Air) ažuriranja programskog koda (firmware-a), što omogućuje daljinsko održavanje, implementaciju sigurnosnih zakrpa i nadogradnju funkcionalnosti robotskih jedinica bez potrebe za fizičkim pristupom, što je neprocjenjivo u potencijalno kontaminiranim zonama. Za razliku od komercijalnih naplatnih LPWAN tehnologija (NB-IoT) ili nekih drugih LPWAN mreža (Sigfox, komercijalni LoRaWAN), Wi-Fi HaLow ne nameće potrebu za plaćanjem mjesečne pretplate za uslugu prijenosa podataka, što je izuzetno važno za integraciju. Odabrani protokol pruža punu podršku za standardni TCP/IP protokolni složaj, omogućujući direktnu i jednostavnu integraciju robotskih sustava u postojeće IP mreže i komunikaciju s centralnim kontrolnim sustavima putem interneta ili lokalnih mreža. Za konkretnu implementaciju, razvoj aplikacijskog sloja i eksperimentalnu validaciju performansi u okviru ovog rada, koristi se Newracom NRC7394 Evaluation Kit (EVK). Ovaj EVK predstavlja cjelovitu razvojnu platformu koja integrira NRC7394 System-on-Chip (SoC), RF front-end sklopovlje, antenski priključak te je baziran na Raspberry Pi 4 SBC (Single board computer) kontroleru, omogućujući detaljno testiranje propusnosti, latencije, dometa i energetske potrošnje u realnim uvjetima primjene specifičnim za CBRNe scenarije.
+Srž rješenja je dvostruki komunikacijski kanal koji robotu omogućuje istovremeno korištenje optičke i bežične veze, osiguravajući time redundanciju i pouzdanost.
 
-(O newracom EVK, sustav, setup, topologija pic)
+#### Optička Veza (Fiber Optic Tether)
+*   **Tehnologija:** Za prijenos podataka korišten je jednomodni (single-mode) optički kabel specificiran prema **ITU-T G.657.A2** standardu. Ovaj tip kabela odabran je zbog iznimne otpornosti na gubitke uzrokovane savijanjem, što je ključno za primjenu na mobilnom vitlu.
+*   **Implementacija:** Kako bi se omogućila dvosmjerna (full-duplex) komunikacija preko jedne optičke niti i time smanjila masa i kompleksnost kabela, korištena je tehnologija **multipleksiranja po valnim duljinama (WDM)**. Implementacija je ostvarena pomoću para komplementarnih WDM medijskih pretvornika (**TP-Link MC111CS/MC112CS**), koji pretvaraju Ethernet signal u optički i obrnuto, koristeći valne duljine od 1310 nm za slanje i 1550 nm za primanje (i obrnuto za drugi uređaj).
 
+#### Bežična Veza (Wireless Link)
+*   **Tehnologija:** Odabrana je **Wi-Fi HaLow (IEEE 802.11ah)** tehnologija zbog superiornih performansi u odnosu na klasični Wi-Fi (2.4/5 GHz), Zigbee ili LoRa. Ključne prednosti su:
+    *   **Rad u sub-1 GHz pojasu (863-870 MHz u Europi):** Omogućuje značajno veći domet i bolju penetraciju kroz prepreke poput zidova i vegetacije.
+    *   **OFDM (Ortogonalno frekvencijsko multipleksiranje):** Čini vezu otpornom na višestaznu propagaciju signala.
+    *   **Podrška za 802.11s Mesh topologiju:** Omogućuje stvaranje samokonfigurirajuće i samoobnavljajuće mreže gdje roboti mogu služiti kao releji, dinamički proširujući domet i pokrivenost.
+*   **Implementacija:** Korišten je evaluacijski kit **Newracom NRC7394**, visoko integrirani System-on-Chip (SoC) koji implementira cjelokupni Wi-Fi HaLow stog.
 
-### Optička veza s dronom
-malo o media konverterima
-puno o tension sustavu
+### 2.2. Mehatronički i Senzorski Podsustavi
 
+Za fizičku manipulaciju optičkim kabelom i osiguravanje stabilne veze, razvijen je specijalizirani mehatronički sustav.
+*   **Sustav za kontrolu napetosti:**
+    *   **Aktuator:** Srce sustava je pametni servo motor **Dynamixel MX-64**, koji omogućuje preciznu kontrolu momenta (struje), brzine i pozicije. Motor je integriran s 3D printanim vitlom za namatanje kabela.
+    *   **Senzor:** Na letjelici je postavljena **mjerna ćelija (load cell)** kapaciteta 10 kg, koja kontinuirano mjeri silu napetosti kabela.
+    *   **Obrada signala:** Analogni signal iz mjerne ćelije pojačava se i digitalizira pomoću 24-bitnog ADC modula **HX711**. Cjelokupnim procesom akvizicije upravlja mikrokontroler **ESP32 Nano**, koji obrađene podatke o sili šalje putem serijske veze.
 
-### Napajanje
-? shema napajanja (BEC+sustavi?)
+### 2.3. Platforma i Centralna Jedinica
 
+*   **Procesorska jedinica:** Kao centralni "mozak" sustava na letjelici i na baznoj postaji korišteno je računalo **Raspberry Pi 4B**. Ono izvršava operativni sustav, upravljačke programe i aplikacijski sloj (ROS 2).
+*   **Robotska platforma:** Sustav je integriran i testiran na zračnom robotskom okviru **Hexsoon EDU-450**, koji je odabran zbog svoje modularnosti, nosivosti i kompatibilnosti s otvorenim standardima za autopilote.
 
+## 3. Programsko Rješenje
 
+Softverska arhitektura osmišljena je za modularnost, fleksibilnost i integraciju unutar standardnog robotskog ekosustava.
 
+### 3.1. Operativni Sustav i Upravljački Programi
 
+*   **OS:** Korišten je **Raspberry Pi OS (Bookworm)** s Linux jezgrom verzije 6.6.
+*   **Upravljački program za HaLow:** Za funkcionalnost NRC7394 kartice, kompajliran je i instaliran specifični jezgreni modul (`nrc.ko`). Ovaj modul integrira HaLow hardver u standardni Linux bežični podsustav (`mac80211`), omogućujući da se HaLow sučelje (`wlan0`) konfigurira standardnim Linux alatima (`wpa_supplicant`, `hostapd`).
 
+### 3.2. Robotski Radni Okvir (ROS 2)
 
+Aplikacijski sloj za upravljanje i razmjenu podataka implementiran je unutar **ROS 2 (Jazzy Jalisco)** radnog okvira. Zbog nedostatka službenih binarnih paketa za Raspberry Pi OS, ROS 2 je izgrađen izravno iz izvornog koda.
 
------
+Razvijena su dva ključna ROS 2 paketa koji čine zatvorenu upravljačku petlju za kontrolu napetosti:
+1.  **`esp32_load_cell` (Python):**
+    *   Ovaj ROS 2 čvor (`SerialReaderNode`) kontinuirano čita podatke o sili sa serijskog porta na koji je spojen ESP32.
+    *   Podatke parsira i publicira na ROS 2 temu `/serial_esp_data` kao `std_msgs/msg/String` poruku.
+2.  **`dynamixel_mx64_control` (C++):**
+    *   Čvor `DynamixelController` pretplaćen je na temu `/serial_esp_data`.
+    *   Nakon primitka poruke, parsira vrijednost sile i primjenjuje funkciju skaliranja kako bi izračunao potrebnu ciljanu struju za motor (Goal Current).
+    *   Koristeći **DynamixelSDK** biblioteku, šalje naredbu motoru da postavi izračunatu struju, čime se regulira napetost kabela.
+    *   Dodatno, čvor periodički očitava status motora (poziciju, brzinu, struju) i publicira ga na temu `/motor_status` za nadzor.
 
+### 3.3. Konfiguracija Mrežnog Sloja (CycloneDDS)
 
-ROS2:
-- fixed, blocking funckije nisu bitne za sad (cin) jer ih neće bit u final stvari
+ROS 2 koristi **DDS (Data Distribution Service)** kao temeljni komunikacijski sloj. Zadani DDS (CycloneDDS) u standardnoj konfiguraciji koristi multicast za otkrivanje čvorova, što može biti nepouzdano na Wi-Fi mrežama, osobito u Mesh topologiji. Kako bi se osigurala deterministička komunikacija, korištena je vanjska XML konfiguracijska datoteka za CycloneDDS kojom je:
+*   Onemogućen multicast za otkrivanje čvorova (`SpdpMulticast = false`).
+*   Eksplicitno definirane IP adrese `peer` čvorova, osiguravajući direktno uspostavljanje veze.
 
-RPI:
-* WiFi AP - DONE
-* Static IP na Ethernetu - DONE
-* 24.04, ROS, etc... - DONE
+## 4. Integracija i Rezultati Testiranja
 
-NEWRACOM:
-*  NRC7394 - NOT DONE, needs equipment
+Sustav je podvrgnut nizu testova kako bi se verificirala funkcionalnost i performanse svake komponente i cjeline.
 
-TENSION:
-* Load Cell Tension sys - DONE, printed
-* Load Cell programing - NO, needs equipment
-* ovaj vrag za namatanje - DONE, printed
+### 4.1. Testiranje Sustava za Kontrolu Napetosti
 
+*   **Metodologija:** Razvijeni sustav za mjerenje napetosti (mjerna ćelija + ESP32) uspoređen je s referentnim, visoko-preciznim šestoosnim senzorom sile **Optoforce**. Oba senzora mjerila su napetost istovremeno.
+*   **Rezultati:** Grafički prikazi (Slika 6.8 i 6.9 u radu) pokazuju izvrsnu korelaciju između mjerenja razvijenog sustava i referentnog senzora, čime je potvrđena njegova funkcionalnost i točnost za zadanu primjenu. Testiranje je također otkrilo ograničenje maksimalne linearne brzine vitla od **4.9 cm/s**, što je ključan podatak za buduća poboljšanja.
 
-GIT:
-* update
+### 4.2. Testiranje Otpornosti Optičkog Kabela
+
+*   **Metodologija:** Kabel G.657.A2 namotan je na vitlo radijusa 7.5 mm (minimalni specificirani radijus), te je mjerena mrežna propusnost pomoću alata `iperf3` nakon svakog namotaja.
+*   **Rezultati:** Nije zabilježen pad performansi čak ni pri maksimalnom broju namotaja. Propusnost je konstantno bila na teorijskom maksimumu Ethernet veze od ~94 Mbps (Slika 6.5), potvrđujući da dizajn vitla i odabir kabela ne unose značajne gubitke.
+
+### 4.3. Testiranje Performansi Wi-Fi HaLow
+
+Testiranje je provedeno na poligonu Ravnateljstva civilne zaštite u Jastrebarskom.
+*   **LOS (Line-of-Sight) Scenarij:** Uspostavljena je stabilna veza s dva uređaja na udaljenosti do **350 metara**, uz propusnost dovoljnu za prijenos telemetrije i kontrolnih signala.
+*   **NLOS (Non-Line-of-Sight) i Mesh Scenarij:**
+    *   Uvođenjem trećeg uređaja koji je služio kao **MAP (Mesh Access Point)**, domet sustava uspješno je proširen na impresivnih **500 metara** u uvjetima bez optičke vidljivosti.
+    *   Na toj udaljenosti, uz jedan "skok" (hop) preko MAP-a, izmjerena je stabilna propusnost od oko **1 Mbps**. Ova brzina je dovoljna za istovremeni prijenos telemetrije, kontrolnih signala i video prijenosa standardne rezolucije.
+*   **Zaključak testiranja:** Testovi su nedvojbeno pokazali izvedivost i robusnost Wi-Fi HaLow tehnologije, a posebice njezine Mesh funkcionalnosti, za proširenje operativnog dometa robotskih sustava u realističnim, ometajućim okruženjima.
+
+## 5. Zaključak Rada
+
+Ovaj diplomski rad uspješno je demonstrirao dizajn, implementaciju i validaciju **heterogenog komunikacijskog sustava** za robotske operacije. Ključni doprinosi rada su:
+*   **Sinergija tehnologija:** Pokazano je da kombinacija optičke veze otporne na smetnje i dugometne, samokonfigurirajuće bežične Mesh mreže pruža visoku razinu **pouzdanosti, redundancije i fleksibilnosti**.
+*   **Cjelovito rješenje:** Razvijen je kompletan sustav, od mehatronike za upravljanje kabelom do složenog programskog rješenja temeljenog na ROS 2, koji integrira sve komponente u funkcionalnu cjelinu.
+*   **Praktična validacija:** Performanse sustava potvrđene su kroz rigorozno testiranje u realističnim uvjetima, dokazujući njegovu primjenjivost za zahtjevne CBRNe scenarije.
+
+Predloženi sustav predstavlja temelj za budući razvoj autonomnijih i sposobnijih robotskih timova koji mogu sigurno i učinkovito djelovati u najopasnijim okruženjima.
 
 diplomski na overleafu:
 https://www.overleaf.com/read/jkqhyxytmrxt#3c8907
