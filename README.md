@@ -4,7 +4,7 @@ Ovaj repozitorij sadrži materijale, programski kod i dokumentaciju razvijenu u 
 **Autor:** Viktor Horvat
 **Mentor:** izv. prof. dr. sc. Matko Orsag
 
-## 1. Uvod i Cilj Rada
+## 1. Uvod i cilj rada
 
 Operacije u **kemijskom, biološkom, radiološkom, nuklearnom i eksplozivnom (CBRNe)** okruženju predstavljaju izniman rizik za ljudske timove. Upotreba multiagentskih robotskih sustava ključna je za izviđanje, nadzor i intervenciju u takvim uvjetima, no njihova učinkovitost ovisi o pouzdanosti komunikacijskog sustava, koji je često ugrožen zbog fizičkih prepreka, elektromagnetskih smetnji (EMI) ili namjernog ometanja.
 
