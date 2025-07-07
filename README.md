@@ -45,7 +45,7 @@ Razvijeni sustav temelji se na modularnoj arhitekturi koja integrira hardverske 
 
 Srž rješenja je dvostruki komunikacijski kanal koji robotu omogućuje istovremeno korištenje optičke i bežične veze, osiguravajući time redundanciju i pouzdanost.
 
-#### Optička Veza (Fiber Optic Tether)
+#### Optička veza (Fiber optic tether)
 *   **Tehnologija:** Za prijenos podataka korišten je jednomodni (single-mode) optički kabel specificiran prema **ITU-T G.657.A2** standardu. Ovaj tip kabela odabran je zbog iznimne otpornosti na gubitke uzrokovane savijanjem, što je ključno za primjenu na mobilnom vitlu.
 *   **Implementacija:** Kako bi se omogućila dvosmjerna (full-duplex) komunikacija preko jedne optičke niti i time smanjila masa i kompleksnost kabela, korištena je tehnologija **multipleksiranja po valnim duljinama (WDM)**. Implementacija je ostvarena pomoću para komplementarnih WDM medijskih pretvornika (**TP-Link MC111CS/MC112CS**), koji pretvaraju Ethernet signal u optički i obrnuto, koristeći valne duljine od 1310 nm za slanje i 1550 nm za primanje (i obrnuto za drugi uređaj).
 
@@ -78,7 +78,7 @@ Softverska arhitektura osmišljena je za modularnost, fleksibilnost i integracij
 *   **OS:** Korišten je **Raspberry Pi OS (Bookworm)** s Linux jezgrom verzije 6.6.
 *   **Upravljački program za HaLow:** Za funkcionalnost NRC7394 kartice, kompajliran je i instaliran specifični jezgreni modul (`nrc.ko`). Ovaj modul integrira HaLow hardver u standardni Linux bežični podsustav (`mac80211`), omogućujući da se HaLow sučelje (`wlan0`) konfigurira standardnim Linux alatima (`wpa_supplicant`, `hostapd`).
 
-### 3.2. Robotski Radni Okvir (ROS 2)
+### 3.2. Robotski operacijski sustav (ROS 2)
 
 Aplikacijski sloj za upravljanje i razmjenu podataka implementiran je unutar **ROS 2 (Jazzy Jalisco)** radnog okvira. Zbog nedostatka službenih binarnih paketa za Raspberry Pi OS, ROS 2 je izgrađen izravno iz izvornog koda.
 
